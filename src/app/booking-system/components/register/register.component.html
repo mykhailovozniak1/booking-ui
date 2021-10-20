@@ -1,0 +1,88 @@
+<div>
+  <h2 class="title">Register a new user</h2>
+  <small class="form-text sub-title">Hello please enter your email, username, password to register</small>
+  <form
+    autocomplete="nope"
+    novalidate=""
+    class="ng-touched ng-dirty ng-invalid"
+    [formGroup]="form">
+    <div class="form-group">
+      <label class="sr-only" for="input-email">Email address</label>
+      <input
+        [(ngModel)]="email"
+        class="form-control ng-pristine ng-invalid form-control-danger ng-touched"
+        id="input-email"
+        name="email"
+        placeholder="Email address"
+        formControlName="email"
+      >
+    </div>
+    <div *ngIf="validEmail.errors && validEmail.touched">
+      <div *ngIf="validEmail.errors.required" class="warning center">
+        Email required.
+      </div>
+      <div *ngIf="validEmail.errors?.pattern" class="warning center">
+        Email not valid.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="input-password">Password</label>
+      <input
+        [(ngModel)]="password"
+        class="form-control ng-pristine ng-invalid form-control-danger ng-touched"
+        id="input-password"
+        name="password"
+        placeholder="Password"
+        type="password"
+        minlength="4"
+        maxlength="50"
+        formControlName="password"
+      >
+      <div *ngIf="validPassword.errors && validPassword.touched">
+        <div *ngIf="validPassword.errors.required" class="warning center">
+          Password required.
+        </div>
+        <div *ngIf="validPassword.errors?.minlength?.requiredLength" class="warning center">
+          Password is too short.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="input-email">User name</label>
+      <input
+        [(ngModel)]="userName"
+        class="form-control ng-pristine ng-invalid form-control-danger ng-touched"
+        id="user-name"
+        name="userName"
+        placeholder="userName"
+        formControlName="userName"
+      >
+    </div>
+    <div *ngIf="validUserName.errors && validUserName.touched">
+      <div *ngIf="validUserName.errors.required" class="warning center">
+        UserName required.
+      </div>
+    </div>
+
+    <button
+      class="btn btn-block btn-hero-success"
+      (click)="registerUser()"
+      [disabled]="!form.valid"
+    > Register </button>
+
+  </form>
+  <div class="links">
+    <small class="form-text">Or connect with:</small>
+    <div class="socials">
+      <a href="https://github.com/akveo/nebular" target="_blank" class="socicon-github with-icon">
+      </a>
+      <a href="https://www.facebook.com/akveo/" target="_blank" class="socicon-facebook with-icon">
+      </a>
+      <a href="https://twitter.com/akveo_inc" target="_blank" class="socicon-twitter with-icon">
+      </a>
+    </div>
+  </div>
+</div>

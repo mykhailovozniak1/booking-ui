@@ -1,0 +1,28 @@
+<!-- TODO: Example of bootstrap -->
+<!--https://mdbootstrap.com/snippets/jquery/tomekmakowski/631388-->
+
+<div class="container">
+  <div class="row my-5 justify-content-center">
+    <div class="col-lg-10">
+      <h2>Choose best free place</h2>
+      <!--Main card-->
+      <div class="card custom-height scrollspy-example">
+        <!--Card Body -->
+        <div class="card-body">
+          <!--Card-->
+
+          <div class="row">
+            <div class="col-md-6" *ngFor="let place of placesToGoMock">
+              <ngx-place [place]="place" (bookedPlaceEvent)="notifyAboutBookedPlace(place)"></ngx-place>
+            </div>
+
+            <div *ngIf="placesToGoMock.length === 0">There are no available places</div>
+          </div>
+          <!--Card-->
+        </div>
+        <!--Card Body -->
+      </div>
+      <!--Main card-->
+    </div>
+  </div>
+</div>

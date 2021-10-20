@@ -1,0 +1,21 @@
+<div class="view overlay z-depth-1">
+  <img class="img-fluid" src="{{place?.imageUrl}}" alt="">
+  <div class="description rgba-stylish-light text-white">
+    <div class="title ml-2">
+      <h5 class="m-0">{{place.name}}</h5>
+      <h6>Date: {{place.reservedDate | date: 'medium' }}</h6>
+    </div>
+    <div class="subtitle ml-2">
+      <button class="btn btn-primary" (click)="bookPlace()">Book</button>
+    </div>
+    <div class="more yellow-text ">
+      <div class="stars text-center mr-2  justify-content-center">
+        <i class="fas fa-star fa-xs "></i>
+        <i class="fas fa-star fa-xs "></i>
+        <i class="fas fa-star fa-xs "></i>
+        <i class="fas fa-star-half-alt fa-xs "></i>
+        <i class="far fa-star fa-xs "></i>
+      </div>
+    </div>
+  </div>
+</div>
